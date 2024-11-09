@@ -1,0 +1,4 @@
+
+Operação: Débito - Valor: 150500.25 - Descrição Salário
+Operação: Retirada - Valor: 1000 - Descrição Fatura
+Operação: Débito - Valor: 33500.22 - Descrição: Depósito

@@ -2,7 +2,7 @@
 # via INTERFACE para Python mesmo Python não tendo interface 
 
 # from pasta.arquivo import classe
-from configurations.configurations import configurations
+from configurations.configurations import Configurations
 
 class Utils():
     def __init__(self):
@@ -19,5 +19,5 @@ class Utils():
     # pode ser que o programa reclame da variável chamada "type", pois essa 
     # palavra já está sendo usada como palavra reservada (type())
     def write_file(self, _type, value, description):
-        with open('caminho', 'a+') as file:
-            file.write(f'\nOperação: {_type} - Valor: {value} - Descrição {}')
+        with open(self.__config.file_output, 'a+') as file:
+            file.write(f'\nOperação: {_type} - Valor: {value} - Descrição: {description}')

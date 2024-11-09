@@ -1,4 +1,4 @@
-from utils.utils import utils
+from utils.utils import Utils
 
 class Transaction():
     def __init__(self, type=None, value=None, description=None):
@@ -11,7 +11,5 @@ class Transaction():
         self.__utils.write_file(self.__type, self.__value, self.__description)
 
     def view(self):
-        for transaction in self.__utils.read_file():
-            print((f'\nOperação: {transaction[0]} - '
-                   f'Valor: {transaction[1]} - '
-                   f'Descrição: {transaction[2]}.')
+        for transact_line in self.__utils.read_file():
+            print(transact_line)

@@ -1,4 +1,4 @@
-from models.transaction import transaction
+from models.transaction import Transaction
 
 # se a ferramenta escalasse, se surgissem muitíssimas novas implementações, 
 # haveria novos imports aqui -> posso crescer o programa tanto quanto eu quiser
@@ -15,7 +15,9 @@ class Initialize():
         print(50 * '-')
         print('1 - Adicionar transação.')
         print('2 - Visualizar transações')
-        print('3 - Sair')
+        print('3 - Pesquisar por tipo de operação')
+        print('4 - Filtrar por data')
+        print('5 - Sair')
 
     def choose_option(self):
         option = input('\nEscolha uma das opções: ')
@@ -63,5 +65,9 @@ if __name__ == '__main__':
         elif option == '2':
             init.to_view()
         elif option == '3':
+            pass
+        elif option == '4':
+            pass
+        elif option == '5':
             init.to_go_out()
     
