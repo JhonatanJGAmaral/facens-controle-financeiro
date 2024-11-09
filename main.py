@@ -1,3 +1,9 @@
+from models.transaction import transaction
+
+# se a ferramenta escalasse, se surgissem muitíssimas novas implementações, 
+# haveria novos imports aqui -> posso crescer o programa tanto quanto eu quiser
+# nessa estrutura padronizada
+
 class Initialize():
     # banco de dados em memória (lista, em python)
     def __init__(self):
@@ -25,33 +31,20 @@ class Initialize():
     def __check_option(self, option):
         return option in ['1', '2', '3']
 
-    def __persist_transact(self, operation, value, description):
-        self.__transactions.append(
-            (operation, value, description)
-        )
-    
-    def __retrieve_transactions_data(self):
-        transact_data = []
-        for transaction in self.__transactions:
-                    transact_data.append((f'\nOperação: {transaction[0]} - '
-                                          f'Valor: {transaction[1]} - '
-                                          f'Descrição: {transaction[2]}.'))
-        return transact_data
-
     def to_add(self):
         operation = input('Informar o tipo de operação: ')
         value = input('Informar o valor: ')
         description = input('Informe a descrição: ')
         # para garantir o encapsulamento, os métodos públicos não devem executar esse tipo de ação
         # pois facilita aos hackers efetuarem uma SQL Injection, por exemplo. É preciso que métodos
-        # públicos chamem os métodos privados responsáveis por fazer isso
+        # públicos chamem os métodos privados responsáveis por fazer isso -
         
-        self.__persist_transact(operation, value, description)
+        t = Transaction(operation, value, description)
+        t.save()
+        del t # não é obrigatório (apenas para garantir)
 
     def to_view(self):
-        transact_data = self.__retrieve_transactions_data()
-        for transaction in transact_data:
-            print(transaction)
+        Transaction().view()
 
     def to_go_out(self):
         print('\nObrigado. Volte sempre!')
